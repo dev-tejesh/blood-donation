@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "341750438975",
+    "project_id": "practice-d7bfe",
+    "storage_bucket": "practice-d7bfe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:341750438975:android:9f7dc6d4e1daeed61eac8a",
+        "android_client_info": {
+          "package_name": "com.thetejesh.firebase_practice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "341750438975-mru45m6ol270dnl3vtfq4emaufdci0ck.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwyBOM7M1RVqHO1DMxkDG1yu2yhR00jcw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "341750438975-mru45m6ol270dnl3vtfq4emaufdci0ck.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
