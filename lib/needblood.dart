@@ -29,6 +29,7 @@ class _NeedbloodState extends State<Needblood> {
     'O−',
   ];
   int count = 0;
+  bool check = true;
   late String countryValue;
   late String stateValue;
   late String cityValue;
@@ -268,6 +269,7 @@ class _NeedbloodState extends State<Needblood> {
 
                     return index == 0 && _controller.text.isNotEmpty
                         ? Container(
+                          
                             child: Text(
                               'Donors are not available in your city.Kindly check the registered users in home page.',
                               style: TextStyle(color: Colors.red),

@@ -4,6 +4,8 @@ import 'package:firebasepractice/forgotpassword.dart';
 import 'package:firebasepractice/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Loading extends StatelessWidget {
   @override
@@ -40,6 +42,20 @@ class _LoginPageState extends State<LoginPage> {
 
   void hideProgressDialogue(BuildContext context) {
     Navigator.of(context).pop(Loading());
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    changes();
+  }
+
+  changes() async {
+    // Obtain shared preferences.
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    if (pref.containsKey('repeat')) {
+      Get.offAll(Homepage());
+    }
   }
 
   @override
@@ -174,6 +190,8 @@ class _LoginPageState extends State<LoginPage> {
                             email: email.text, password: pass.text);
                     if (user != null) {
                       // print(showSpinner);
+                      final prefs = await SharedPreferences.getInstance();
+                      await prefs.setBool('repeat', true);
                       showDialogue(context);
                       Navigator.push(
                         context,

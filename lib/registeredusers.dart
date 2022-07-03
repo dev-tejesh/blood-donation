@@ -173,7 +173,8 @@ class _RegisteredusersState extends State<Registeredusers> {
     QuerySnapshot<Map<String, dynamic>> data =
         await FirebaseFirestore.instance.collection("users").get();
     docs = data.docs;
-    // print(docs);
+    print(docs);
+    print('tejesh');
     setState(() {});
     EasyLoading.dismiss();
     return docs;

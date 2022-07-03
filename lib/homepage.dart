@@ -1,10 +1,15 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:firebasepractice/deleteuser.dart';
 import 'package:firebasepractice/donateblood.dart';
+import 'package:firebasepractice/loginpage.dart';
 import 'package:firebasepractice/main.dart';
 import 'package:firebasepractice/needblood.dart';
 import 'package:firebasepractice/registeredusers.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({Key? key}) : super(key: key);
@@ -14,6 +19,15 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+  FirebaseAuth auth = FirebaseAuth.instance;
+  //signout function
+  tej() async {
+    await FirebaseAuth.instance.signOut();
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    pref.remove('repeat');
+    Get.offAll(MyHomePage(title: 'tej'));
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -156,7 +170,8 @@ class _HomepageState extends State<Homepage> {
                   ),
                   InkWell(
                     onTap: () {
-                      Get.to(MyHomePage(title: 'tej'));
+                      // Get.to(MyHomePage(title: 'tej'));
+                      tej();
                     },
                     child: Container(
                       width: 1000,
@@ -179,10 +194,6 @@ class _HomepageState extends State<Homepage> {
   }
 }
 
-
-
-
-
 // Container(
 //           padding: EdgeInsets.all(20),
 //           child: InkWell(
@@ -194,5 +205,5 @@ class _HomepageState extends State<Homepage> {
 //                 }));
 //               },
 //               child: Text('logout')),
-              
+
 //         ),
